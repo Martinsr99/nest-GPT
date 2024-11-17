@@ -1,5 +1,6 @@
 {
   "singleQuote": true,
   "trailingComma": "all",
-  "endOfLine": "lf"
+  "endOfLine": "auto",
+    "no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 0 }]
 }

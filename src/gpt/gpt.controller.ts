@@ -11,9 +11,6 @@ export class GptController {
     @Body() ortographyDto: OrtographyDto,
   ) {
 
-    return ortographyDto
-
-
-    // return this.gptService.ortographyCheck();
+    return this.gptService.ortographyCheck(ortographyDto);
   }
 }

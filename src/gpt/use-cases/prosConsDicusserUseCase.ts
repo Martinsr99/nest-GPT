@@ -10,20 +10,17 @@ export const prosConsDicusserUseCase = async (openai: OpenAI,{prompt}: Options) 
       messages: [{role:"system",content: 
         `
         Se te dará una pregunta y tu tarea es responder con pros y contras.
-        La respuesta debe ser un objeto JSON donde se incluyan dos listas: "pros" y "contras".
+        La respuesta debe estar en formato markdown e incluir dos listas: "pros" y "contras".
         Asegúrate de analizar la pregunta en el contexto actual.
         `
       },
       {role:'user',content:prompt}],
       model: "chatgpt-4o-latest",
-      temperature: 0.3,
-      max_tokens: 150,
-      response_format: {
-        type: 'json_object',
-      }
+      temperature: 0.8,
+      max_tokens: 300,
     })
 
     console.log(completion)
-    return JSON.parse(completion.choices[0].message.content)
+    return completion.choices[0].message
     
 };

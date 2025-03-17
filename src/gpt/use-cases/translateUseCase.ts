@@ -20,6 +20,6 @@ export const translateUseCase = async (openai: OpenAI,{prompt, lang}: Options) =
     })
 
     console.log(completion)
-    return completion.choices[0].message.content
+    return completion.choices[0].message
     
 };

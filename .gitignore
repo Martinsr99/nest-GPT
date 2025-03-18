@@ -12,6 +12,9 @@ yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 
+/generated/*
+!/generated/.gitkeep
+
 # OS
 .DS_Store
 

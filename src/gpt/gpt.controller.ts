@@ -1,6 +1,6 @@
 import { Body, Controller, FileTypeValidator, Get, HttpStatus, MaxFileSizeValidator, Param, ParseFilePipe, Post, Res, UploadedFile, UseInterceptors } from '@nestjs/common';
 import { GptService } from './gpt.service';
-import { OrthographyDto, ProsConsDicusserDto, TextToAudioDto } from './dtos';
+import { AudioToTextDto, OrthographyDto, ProsConsDicusserDto, TextToAudioDto } from './dtos';
 import { Response } from 'express';
 import { TranslateDto } from './dtos/translate.dto';
 import { FileInterceptor } from '@nestjs/platform-express';
@@ -102,9 +102,10 @@ export class GptController {
           new FileTypeValidator({fileType: 'audio/*'})
         ]
       })
-    ) file: Express.Multer.File
+    ) file: Express.Multer.File,
+    @Body() audioToTextDto: AudioToTextDto,
   ) {
-    return this.gptService.audioToText(file)
+    return this.gptService.audioToText(file, audioToTextDto)
   }
 }
 
